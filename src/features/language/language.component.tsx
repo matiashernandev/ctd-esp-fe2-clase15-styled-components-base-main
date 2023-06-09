@@ -1,26 +1,28 @@
 import { FC } from 'react';
 import { useLanguage } from 'features/language/index';
+import { LanguageButtonWrapper, LanguageWrapper } from './language.styles';
 
 const LanguageComponent: FC = () => {
   const { language, setLanguage, t } = useLanguage();
+
   return (
-    <div className={'language'}>
-      <button
-        onClick={() => setLanguage('SPANISH')}
-        className={language === 'SPANISH' ? 'language-button active' : 'language-button'}>
+    <LanguageWrapper>
+      <LanguageButtonWrapper
+        isActive={language === 'SPANISH'}
+        onClick={() => setLanguage('SPANISH')}>
         {t('language.spanish')}
-      </button>
-      <button
-        onClick={() => setLanguage('ENGLISH')}
-        className={language === 'ENGLISH' ? 'language-button active' : 'language-button'}>
+      </LanguageButtonWrapper>
+      <LanguageButtonWrapper
+        isActive={language === 'ENGLISH'}
+        onClick={() => setLanguage('ENGLISH')}>
         {t('language.english')}
-      </button>
-      <button
-        onClick={() => setLanguage('PORTUGUESE')}
-        className={language === 'PORTUGUESE' ? 'language-button active' : 'language-button'}>
+      </LanguageButtonWrapper>
+      <LanguageButtonWrapper
+        isActive={language === 'PORTUGUESE'}
+        onClick={() => setLanguage('PORTUGUESE')}>
         {t('language.portuguese')}
-      </button>
-    </div>
+      </LanguageButtonWrapper>
+    </LanguageWrapper>
   );
 };
 export default LanguageComponent;
